@@ -12,7 +12,7 @@ class Split extends StatefulWidget {
 class _SplitState extends State<Split> {
 
   double _value = 0;
-  int counter=0;
+  double counter=0;
   String res = "";
   String back='';
   TextEditingController tax=TextEditingController();
@@ -211,7 +211,7 @@ class _SplitState extends State<Split> {
                               ),
                               Text('$counter',style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 32,
+                                fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),),
                               Container(

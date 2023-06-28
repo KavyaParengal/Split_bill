@@ -13,7 +13,20 @@ class Result extends StatefulWidget {
 
 class _ResultState extends State<Result> {
 
-
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    calculate_bill();
+  }
+ late double finalbill;
+  calculate_bill(){
+   double taxamt=double.parse(widget.total)*double.parse(widget.tax.text)/100;
+   print(taxamt);
+    finalbill=(double.parse(widget.total)+taxamt+widget.tip)/widget.friends;
+   print(finalbill);
+   return finalbill;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +75,7 @@ class _ResultState extends State<Result> {
                     Row(
                       children: [
                         Icon(Icons.currency_rupee,color: Colors.yellow,size: 29,),
-                        Text('123',style: TextStyle(
+                        Text(finalbill.toStringAsFixed(2).toString(),style: TextStyle(
                           color: Colors.yellow,
                           fontSize: 29,
                           fontWeight: FontWeight.bold,
@@ -99,7 +112,7 @@ class _ResultState extends State<Result> {
                           Column(
                             children: [
                               SizedBox(height: 3,),
-                              Text('22',style: TextStyle(
+                              Text(widget.friends.toStringAsFixed(0).toString(),style: TextStyle(
                                 color: Colors.yellow[300],
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
@@ -107,7 +120,7 @@ class _ResultState extends State<Result> {
                               SizedBox(height: 3,),
                               Row(
                                 children: [
-                                  Text('23',style: TextStyle(
+                                  Text(widget.tax.text,style: TextStyle(
                                     color: Colors.yellow[300],
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
@@ -121,7 +134,7 @@ class _ResultState extends State<Result> {
                                 ],
                               ),
                               SizedBox(height: 3,),
-                              Text('22',style: TextStyle(
+                              Text(widget.tip.toString(),style: TextStyle(
                                 color: Colors.yellow[300],
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
@@ -148,7 +161,7 @@ class _ResultState extends State<Result> {
                   fontWeight: FontWeight.bold,
                 )),
                 Icon(Icons.currency_rupee,color: Colors.blueGrey[700],),
-                Text('125  ',style: TextStyle(
+                Text(finalbill.toStringAsFixed(2).toString(),style: TextStyle(
                   color: Colors.blueGrey[700],
                   fontSize: 22,
                   fontWeight: FontWeight.bold,

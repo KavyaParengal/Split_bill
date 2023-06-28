@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'EBGaramond',
         hoverColor: Colors.blueGrey,
       ),
+      debugShowCheckedModeBanner: false,
       home: Split(),
     );
   }
